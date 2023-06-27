@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sign in</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #06599c;
+      }
+
+      .wrapper {
+        max-width: 350px;
+        min-height: 500px;
+        margin: 80px auto;
+        padding: 10px 20px 20px 20px;
+        background-color: #06599c;
+        border-radius: 15px;
+        box-shadow: 13px 13px 20px #fcc42b, -13px -13px 20px #fcc42b;
+      }
+
+      .logo {
+        display: flex;
+        justify-content: center;
+      }
+
+      #head {
+        width: 100%;
+        max-width: match-parent;
+        min-height: 100px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        gap: 1rem;
+
+        padding: 2rem;
+        background: #202020;
+        border: medium;
+        border-color: #373737;
+      }
+      #head h1 {
+        color: white;
+      }
+      p {
+        font-size: large;
+        color: white;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        width: 100%;
+        max-width: 400px;
+      }
+      input[type="text"],
+      input[type="number"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 1rem;
+      }
+      .btn-primary {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        margin-top: 1.5rem;
+        background-color: #fcc42b;
+        color: black;
+        border-color: #4b4b4b;
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="logo">
+        <img src="https://i.ibb.co/5L6gpkq/cinema-logo.png" alt="" />
+      </div>
+      <form
+        method="post"
+        th:action="@{/auth/signup}"
+        th:object="${register}"
+        class="p-3 mt-3"
+      >
+        <p>Nombre de usuario</p>
+        <input
+          type="text"
+          th:field="*{username}"
+          placeholder="Username"
+          class="form-field d-flex align-items-center"
+        />
+        <p>Correo electrónico</p>
+        <input
+          type="text"
+          th:field="*{email}"
+          placeholder="example@example.com"
+          class="form-field d-flex align-items-center"
+        />
+        <p>Contraseña</p>
+        <input
+          type="password"
+          th:field="*{password}"
+          class="form-field d-flex align-items-center"
+        />
+        <input type="submit" value="Registrarse" class="btn btn-primary" />
+      </form>
+    </div>
+  </body>
+</html>

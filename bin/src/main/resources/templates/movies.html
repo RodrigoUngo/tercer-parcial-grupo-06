@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> Películas </title>
+ 
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+ 
+        body {
+            width: 100%;
+ 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+ 
+            background: gainsboro;
+        }
+ 
+        #box {
+            width: 100%;
+            max-width: 450px;
+            min-height: 400px;
+ 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            
+ 
+            padding: 2rem;
+            background: white;
+            
+            border-radius: 1rem;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+        
+        #head {
+			color: indianred;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+		}
+		
+		#line{
+			color:deeppink;
+			
+		}
+		
+		 #box form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+         #box {
+            width: 100%;
+            max-width: 800px;
+            min-height: 400px;
+ 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            
+ 
+            padding: 2rem;
+            background: white;
+            margin-top: 5rem;
+            
+            border-radius: 1rem;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+        
+		.badges {
+			width: 100%;
+			padding: 1rem;
+			
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			
+			gap: 16px;
+		}
+		
+		.badges p{
+			text-align: center;
+		}
+		
+		.badges span {
+			text-align: center;
+			padding: 0.5rem 1rem;
+			width: 200px;
+			height: 88px;
+			color:  white;
+			background: coral;
+			
+			border-radius: 0.5rem;
+		}
+		
+		.order{
+			display: flex;
+			flex-direction: row;
+			border: none;
+			padding: 0px;
+		}
+
+    </style>
+</head>
+<body>
+     <div id="box">
+
+       <div class="order">
+	       <div class="badges">
+	       		<p> Código </p>
+	        	<span th:each="moviesC : ${m.moviesC}" th:text="${moviesC}"/>
+	        </div>
+	        <div class="badges">
+	        	<p> Título </p>
+	     	   <span th:each="moviesT : ${m.moviesT}" th:text="${moviesT}"/>
+	        </div>
+	        <div class="badges">
+	        	<p> Duración </p>
+	       		 <span th:each="moviesD : ${m.moviesD}" th:text="${moviesD}"/>
+	        </div>
+	        <div class="badges">
+	        	<p> Categoría </p>
+	       		 <span th:each="categories : ${m.categories}" th:text="${categories}"/>
+	        </div>
+   	  </div>
+   	  
+</body>
+</html>
